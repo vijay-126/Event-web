@@ -11,7 +11,8 @@ export default function Register() {
     email: "",
     password: "",
   });
-const backendUrl = process.env.BACKENEDURL;
+const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });

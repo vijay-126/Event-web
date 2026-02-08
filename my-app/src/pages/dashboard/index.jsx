@@ -19,6 +19,7 @@ export default function Dashboard() {
   });
   const [loading, setLoading] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(null);
+const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
   // 🔐 AUTH CHECK
   useEffect(() => {
@@ -41,7 +42,7 @@ export default function Dashboard() {
       const query = new URLSearchParams(filters).toString();
 
       const res = await axios.get(
-        `${process.env.BACKENEDURL}/dashboard-events?${query}`,
+        `${backendUrl}/dashboard-events?${query}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -7,12 +7,14 @@ import styles from "./styles.module.css";
 function Listing() {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
+const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
         // No token needed to fetch events
-        const res = await axios.get("http://localhost:5000/events");
+        const res = await axios.get(`${backendUrl}/events`);
         setEvents(res.data.events || []);
         console.log("response", res.data.events);
       } catch (err) {

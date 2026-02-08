@@ -7,7 +7,8 @@ export default function Login() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-const backendUrl = process.env.BACKENEDURL;
+const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+
 
   const login = async (e) => {
     e.preventDefault();

@@ -5,7 +5,8 @@ export default function EventCard({ event }) {
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(false);
-const backendUrl = process.env.BACKENEDURL;
+const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+
   async function handleSubmit(e) {
     e.preventDefault();
 
