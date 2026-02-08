@@ -1,11 +1,11 @@
 import { useState } from "react";
 import styles from "./style.module.css";
-
+import axios from "axios";
 export default function EventCard({ event }) {
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(false);
-
+const backendUrl = process.env.BACKENEDURL;
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -14,16 +14,12 @@ export default function EventCard({ event }) {
       return;
     }
 
-    await fetch("http://localhost:5000/tickets", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email,
-        consent,
-        eventId: event._id,
-        eventUrl: event.originalUrl,
-      }),
-    });
+    await axios.post(`${backendUrl}/tickets`, {
+  email,
+  consent,
+  eventId: event._id,
+  eventUrl: event.originalUrl,
+});
 
     window.location.href = event.originalUrl;
   }

@@ -11,6 +11,7 @@ export default function Register() {
     email: "",
     password: "",
   });
+const backendUrl = process.env.BACKENEDURL;
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -18,7 +19,7 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("http://localhost:5000/register", {
+    const res = await fetch(`${backendUrl}/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),

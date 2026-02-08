@@ -7,11 +7,12 @@ export default function Login() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+const backendUrl = process.env.BACKENEDURL;
 
   const login = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("http://localhost:5000/login", {
+    const res = await fetch(`${backendUrl}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -25,7 +26,7 @@ export default function Login() {
   };
 
   const googleLogin = () => {
-    window.location.href = "http://localhost:5000/api/google";
+    window.location.href = `${backendUrl}/api/google`;
   };
 
   return (

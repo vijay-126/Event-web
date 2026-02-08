@@ -6,7 +6,7 @@ import EventTable from "@/Component/dashboard/eventTable.jsx";
 import EventPreview from "@/Component/dashboard/eventPreview.jsx";
 import NavBar from "@/Component/NavBar/index.jsx";
 import styles from "./dashboard.module.css";
-
+import axios from "axios";
 export default function Dashboard() {
   const router = useRouter();
   const [events, setEvents] = useState([]);
@@ -32,27 +32,37 @@ export default function Dashboard() {
 
   // 📦 FETCH DASHBOARD EVENTS (requires token)
   useEffect(() => {
-    if (!isAuthenticated) return;
+  if (!isAuthenticated) return;
 
-    setLoading(true);
-    const token = localStorage.getItem("token");
-    const query = new URLSearchParams(filters).toString();
+  const fetchEvents = async () => {
+    try {
+      setLoading(true);
+      const token = localStorage.getItem("token");
+      const query = new URLSearchParams(filters).toString();
 
-    fetch(`http://localhost:5000/dashboard-events?${query}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP error ${res.status}`);
-        return res.json();
-      })
-      .then((data) => setEvents(data.events || []))
-      .catch((err) => console.error("Error fetching events:", err))
-      .finally(() => setLoading(false));
-  }, [filters, isAuthenticated]);
+      const res = await axios.get(
+        `${process.env.BACKENEDURL}/dashboard-events?${query}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
-  if (isAuthenticated === null) return <p>Loading...</p>;
+      setEvents(res.data.events || []);
+    } catch (err) {
+      console.error(
+        "Error fetching events:",
+        err.response?.data || err.message
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchEvents();
+}, [filters, isAuthenticated]);
+
 
   return (
     <>
