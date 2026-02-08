@@ -11,7 +11,6 @@ import "./config/googleAuth.js";
 import "./jobs/scrape.cron.js";
 
 const app = express();
-import cors from "cors";
 
 app.use(
   cors({
