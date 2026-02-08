@@ -1,11 +1,12 @@
 import jwt from "jsonwebtoken";
 
+const clientUrl = process.env.CLIENT_URL;
 export const googleCallback = (req, res) => {
   try {
     const user = req.user;
 
     if (!user) {
-      return res.redirect("http://localhost:3000/login?error=auth_failed");
+      return res.redirect(`${clientUrl}/login?error=auth_failed`);
     }
 
     const token = jwt.sign(
@@ -16,12 +17,12 @@ export const googleCallback = (req, res) => {
 
     // 👇 Send token in URL
     res.redirect(
-      `http://localhost:3000/google-success?token=${token}`
+      `${clientUrl}/google-success?token=${token}`
     );
 
   } catch (err) {
     console.error("Google callback error:", err);
-    res.redirect("http://localhost:3000/login?error=server");
+    res.redirect(`${clientUrl}/login?error=server`);
   }
 };
 

@@ -13,7 +13,7 @@ const router = Router();
 router.post("/register", register);
 router.post("/login", login);
 
-router.get("/events",getEvents); // now only logged-in users can fetch events
+router.get("/events",getEvents); 
 router.get("/dashboard-events", verifyToken, getEvents);
 router.post("/tickets", createTicket);
 

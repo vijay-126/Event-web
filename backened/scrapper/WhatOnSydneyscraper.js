@@ -33,7 +33,7 @@ export async function scrapeWhatsOnSydney() {
   await page.waitForTimeout(4000);
 
   // 2️⃣ SCRAPE EVENT LINKS
-  const rawEvents = await page.evaluate(() => {
+  const rawEve6nts = await page.evaluate(() => {
     const seen = new Set();
     const events = [];
 
