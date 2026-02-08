@@ -1,0 +1,69 @@
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.filters label {
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: #555;
+}
+
+.filters input,
+.filters select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+.filters button {
+  padding: 10px;
+  background-color: #4f46e5;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filters button:hover {
+  background-color: #3730a3;
+}.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  margin-top: 1rem;
+}
+
+.tableHeader {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  padding: 10px;
+  text-align: left;
+}
+
+.tableCell {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.tableRow:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.selectedRow {
+  background-color: #d0e7ff !important;
+}
+
+.noEvents {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  font-style: italic;
+}
+

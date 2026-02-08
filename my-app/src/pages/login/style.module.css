@@ -1,0 +1,110 @@
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.form h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 24px;
+  color: #111827;
+}
+
+.form input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  font-size: 15px;
+  outline: none;
+}
+
+.form input:focus {
+  border-color: #2563eb;
+}
+
+.loginBtn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  background: #2563eb;
+  color: white;
+  font-size: 15px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.loginBtn:hover {
+  background: #1d4ed8;
+}
+
+.divider {
+  text-align: center;
+  margin: 18px 0;
+  font-size: 14px;
+  color: #6b7280;
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: #e5e7eb;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+.googleBtn {
+  width: 100%;
+  padding: 12px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.googleBtn:hover {
+  background: #f9fafb;
+}
+
+.bottomSection {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.createLink {
+  color: #2563eb;
+  cursor: pointer;
+}
+
+.createLink:hover {
+  text-decoration: underline;
+}
+
