@@ -22,6 +22,12 @@ app.use(
   })
 );
 
+console.log("ENV CHECK →", {
+  MONGOURL: process.env.MONGOURL,
+  PORT: process.env.PORT
+});
+
+
 
 app.use(cors());
 app.use(express.json());
@@ -33,10 +39,9 @@ const PORT = process.env.PORT;
 const start = async () => {
   try {
     // await mongoose.connect("mongodb://localhost:27017/event");
-    await mongoose.connect(process.env.MONGOURl);
+    await mongoose.connect(process.env.MONGOURL);
     console.log("Database connected successfully");
 
-    // You can call any scraper or test functions here
   } catch (error) {
     console.error("Failed to connect database", error.message);
   }
