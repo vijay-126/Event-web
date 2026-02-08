@@ -11,12 +11,18 @@ import "./config/googleAuth.js";
 import "./jobs/scrape.cron.js";
 
 const app = express();
+import cors from "cors";
+
 app.use(
   cors({
-    origin: "http://localhost:3000", // frontend origin
-    credentials: true, // allow cookies
-  }),
+    origin: [
+      "http://localhost:3000",
+      "https://event-web-ten.vercel.app"
+    ],
+    credentials: true
+  })
 );
+
 
 app.use(cors());
 app.use(express.json());
