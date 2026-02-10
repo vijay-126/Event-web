@@ -10,24 +10,25 @@ if (!GOOGLE_CLIENT_ID || !GOOGLE_CLIENT_SECRET) {
     "Missing GOOGLE_CLIENT_ID or GOOGLE_CLIENT_SECRET in environment variables"
   );
 }
-
 passport.use(
   new GoogleStrategy(
     {
-      clientID: GOOGLE_CLIENT_ID,
-      clientSecret: GOOGLE_CLIENT_SECRET,
-      callbackURL: "https://event-web-15oq.onrender.com/api/google/callback",
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: "/api/google/callback",
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
-        const email = profile.emails[0].value;
+        const email = profile.emails?.[0]?.value;
+        if (!email) return done(new Error("No email from Google"));
+
         let user = await User.findOne({ email });
 
         if (!user) {
           user = await User.create({
             name: profile.displayName,
             email,
-            username: email.split("@")[0] + "_" + Date.now(),
+            username: `${email.split("@")[0]}_${Date.now()}`,
             googleId: profile.id,
             authProvider: "google",
             profilePicture: profile.photos?.[0]?.value || "",
@@ -35,12 +36,13 @@ passport.use(
           });
         }
 
-        return done(null, user);
+        done(null, user);
       } catch (err) {
-        return done(err, null);
+        done(err);
       }
     }
   )
 );
+
 
 export default passport;
