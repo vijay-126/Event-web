@@ -16,7 +16,7 @@ passport.use(
     {
       clientID: GOOGLE_CLIENT_ID,
       clientSecret: GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:5000/api/google/callback",
+      callbackURL: "https://event-web-15oq.onrender.com/api/google/callback",
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
