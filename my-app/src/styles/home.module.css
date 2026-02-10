@@ -35,3 +35,17 @@
   .registerBtn {
     background-color: #16a34a;
   }
+  .exploreBtn {
+  background: linear-gradient(135deg, #ff6a00, #ff9800);
+  color: white;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.subText {
+  margin-top: 24px;
+  font-size: 14px;
+  color: #666;
+}

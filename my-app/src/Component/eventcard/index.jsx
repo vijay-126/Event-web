@@ -14,6 +14,13 @@ const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
       alert("Email and consent are required");
       return;
     }
+    const token = localStorage.getItem("token");
+
+  // 🚨 No token → redirect to login
+  if (!token) {
+    window.location.href = "/login";
+    return;
+  }
 
     await axios.post(`${backendUrl}/tickets`, {
   email,

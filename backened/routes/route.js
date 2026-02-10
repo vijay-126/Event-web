@@ -15,7 +15,7 @@ router.post("/login", login);
 
 router.get("/events",getEvents); 
 router.get("/dashboard-events", verifyToken, getEvents);
-router.post("/tickets", createTicket);
+router.post("/tickets",verifyToken, createTicket);
 
 
 
