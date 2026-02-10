@@ -19,6 +19,7 @@ const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
   // 🚨 No token → redirect to login
   if (!token) {
     window.location.href = "/login";
+    alert("login-reuired for ticket")
     return;
   }
 
