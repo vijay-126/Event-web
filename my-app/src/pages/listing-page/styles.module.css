@@ -4,6 +4,12 @@
   gap: 20px;
   padding: 20px;
 }
+.msgEvent{
+  text-align: center;
+  margin: 40% 0 ;
+  font-size: 2rem;
+  font-weight: bold;
+}
 
 /* Tablet */
 @media (max-width: 1024px) {

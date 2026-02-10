@@ -33,9 +33,9 @@ const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
         <h1 className="text-2xl font-bold mb-4">Upcoming Events</h1>
 
         {loading ? (
-          <p>Loading events...</p>
+          <p className={styles.msgEvent}>Loading events...</p>
         ) : events.length === 0 ? (
-          <p>No events found.</p>
+          <p className={styles.msgEvent}>No events found.</p>
         ) : (
           <div className={styles.eventsGrid}>
             {events.map(event => (
