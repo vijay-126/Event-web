@@ -23,12 +23,21 @@ const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
     return;
   }
 
-    await axios.post(`${backendUrl}/tickets`, {
-  email,
-  consent,
-  eventId: event._id,
-  eventUrl: event.originalUrl,
-});
+  await axios.post(
+  `${backendUrl}/tickets`,
+  {
+    email,
+    consent,
+    eventId: event._id,
+    eventUrl: event.originalUrl,
+  },
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+);
+
 
     window.location.href = event.originalUrl;
   }
