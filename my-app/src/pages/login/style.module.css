@@ -11,6 +11,7 @@
   max-width: 400px;
   background: white;
   padding: 32px;
+  margin: 0 16px;
   border-radius: 12px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
@@ -88,8 +89,10 @@
   font-size: 15px;
 }
 
+.loginBtn:hover,
 .googleBtn:hover {
-  background: #f9fafb;
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
 }
 
 .bottomSection {
@@ -108,3 +111,51 @@
   text-decoration: underline;
 }
 
+/* 📱 Tablets */
+@media (max-width: 768px) {
+  .card {
+    max-width: 90%;
+    padding: 24px;
+  }
+
+  .form h2 {
+    font-size: 22px;
+  }
+
+  .form input {
+    font-size: 14px;
+    padding: 11px 12px;
+  }
+
+  .loginBtn,
+  .googleBtn {
+    font-size: 14px;
+    padding: 11px;
+  }
+}
+
+/* 📱 Mobile */
+@media (max-width: 480px) {
+  .wrapper {
+    padding: 20px;
+  }
+
+  .card {
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .form h2 {
+    font-size: 20px;
+    margin-bottom: 18px;
+  }
+
+  .divider {
+    margin: 16px 0;
+    font-size: 13px;
+  }
+
+  .bottomSection {
+    font-size: 13px;
+  }
+}

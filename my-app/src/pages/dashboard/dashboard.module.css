@@ -39,9 +39,38 @@
   min-width: 280px;
 }
 
-/* Responsive */
+/* Tablet */
 @media (max-width: 1024px) {
+  .sidebar {
+    width: 220px;
+    padding: 16px;
+  }
+
+  .main {
+    padding: 16px;
+    gap: 16px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    box-shadow: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
   .main {
     flex-direction: column;
+  }
+
+  .tableContainer,
+  .previewContainer {
+    flex: unset;
+    width: 100%;
   }
 }

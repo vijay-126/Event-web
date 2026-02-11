@@ -49,3 +49,54 @@
   font-size: 14px;
   color: #666;
 }
+/* 📱 Tablets */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .text {
+    font-size: 1rem;
+    max-width: 90%;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .btn {
+    width: 80%;
+    text-align: center;
+  }
+}
+
+/* 📱 Mobile */
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .text {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    width: 100%;
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .subText {
+    font-size: 12px;
+    text-align: center;
+    padding: 0 10px;
+  }
+}
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;   /* allows wrapping */
+  justify-content: center;
+}

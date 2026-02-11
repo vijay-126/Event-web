@@ -1,43 +1,50 @@
 
 .eventCard {
   border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 16px;
+  border-radius: 12px;
+  padding: 18px;
   background: #ffffff;
-  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+
+.eventCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
 
 .eventImage {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 12px;
-  background: #f3f4f6;
+  border-radius: 10px;
+  margin-bottom: 14px;
 }
+
 
 .eventTitle {
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  color: #111827;
 }
 
-.eventDate {
+.eventDescription {
   font-size: 14px;
-  color: #6b7280;
-  margin-bottom: 4px;
+  color: #4b5563;
+  margin-bottom: 14px;
+  line-height: 1.5;
 }
+
 
 .eventVenue {
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 8px;
-}
-
-.eventDescription {
-  font-size: 14px;
-  color: #374151;
-  margin-bottom: 10px;
 }
 
 .eventSource {
@@ -47,18 +54,21 @@
 }
 
 .eventButton {
-  display: inline-block;
-  padding: 8px 14px;
-  background-color: #2563eb;
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: 4px;
-  font-size: 14px;
+  padding: 12px;
+  font-size: 15px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.event-button:hover {
-  background-color: #a3afcf;
+.eventButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
 }
+
 
 .modalBackdrop {
   position: fixed;
@@ -72,10 +82,24 @@
 .modal {
   background: #fff;
   padding: 28px;
-  width: 380px;              /* ⬅ bigger */
-  border-radius: 12px;       /* ⬅ smoother */
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  width: 90%;
+  max-width: 420px;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  animation: fadeIn 0.25s ease;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 .modal h3 {
   font-size: 22px;           /* ⬅ bigger heading */
@@ -115,21 +139,6 @@
   margin-top: 22px;
 }
 
-.eventButton {
-  flex: 1;
-  padding: 12px;
-  font-size: 16px;
-  border-radius: 8px;
-  background: #2563eb;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.eventButton:hover {
-  background: #1d4ed8;
-}
-
 .cancel {
   flex: 1;
   padding: 12px;
@@ -142,4 +151,37 @@
 
 .cancel:hover {
   background: #d1d5db;
+}
+
+
+@media (max-width: 640px) {
+  .eventCard {
+    padding: 14px;
+  }
+
+  .eventImage {
+    height: 180px;
+  }
+
+  .eventTitle {
+    font-size: 17px;
+  }
+
+  .eventButton {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .modal {
+    padding: 22px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .eventButton,
+  .cancel {
+    width: 100%;
+  }
 }

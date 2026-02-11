@@ -1,64 +1,83 @@
 .filters {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .filters label {
   font-weight: 500;
-  margin-bottom: 4px;
-  color: #555;
+  font-size: 14px;
+  color: #374151;
 }
 
 .filters input,
 .filters select {
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 0.9rem;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+  transition: border 0.2s ease;
+}
+
+.filters input:focus,
+.filters select:focus {
+  outline: none;
+  border-color: #2563eb;
 }
 
 .filters button {
+  margin-top: 8px;
   padding: 10px;
-  background-color: #4f46e5;
+  background: linear-gradient(135deg, #4f46e5, #4338ca);
   color: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .filters button:hover {
-  background-color: #3730a3;
-}.table {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(79,70,229,0.25);
+}
+
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
   width: 100%;
   border-collapse: collapse;
-  font-family: Arial, sans-serif;
-  margin-top: 1rem;
+  min-width: 600px; /* prevents squishing */
 }
 
 .tableHeader {
-  background-color: #f8f9fa;
+  background-color: #f3f4f6;
   font-weight: 600;
-  padding: 10px;
-  text-align: left;
+  padding: 12px;
+  font-size: 14px;
 }
 
 .tableCell {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+.tableRow {
+  transition: background 0.2s ease;
 }
 
 .tableRow:hover {
-  background-color: #f1f1f1;
-  cursor: pointer;
+  background-color: #f9fafb;
 }
 
 .selectedRow {
-  background-color: #d0e7ff !important;
+  background-color: #e0f2ff !important;
 }
+
 
 .noEvents {
   text-align: center;
@@ -67,3 +86,44 @@
   font-style: italic;
 }
 
+.preview {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.preview h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.previewImage {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+
+  .preview {
+    margin-top: 20px;
+  }
+
+  .table {
+    font-size: 13px;
+  }
+
+  .tableCell,
+  .tableHeader {
+    padding: 8px;
+  }
+
+  .filters {
+    gap: 10px;
+  }
+}

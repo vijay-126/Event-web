@@ -29,8 +29,9 @@ const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
   return (
     <UserLayout>
-      <div className="p-6 max-w-4xl mx-auto">
-        <h1 className="text-2xl font-bold mb-4">Upcoming Events</h1>
+      <div className={styles.container}>
+  <h1 className={styles.heading}>Upcoming Events</h1>
+
 
         {loading ? (
           <p className={styles.msgEvent}>Loading events...</p>

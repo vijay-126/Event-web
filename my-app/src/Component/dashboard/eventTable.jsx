@@ -3,6 +3,8 @@ import styles from "./dashboard.module.css";
 
 export default function EventTable({ events, onSelect, selectedId }) {
   return (
+    <div className={styles.tableWrapper}>
+
     <table className={styles.table}>
   <thead>
     <tr className={styles.tableRow}>
@@ -33,6 +35,6 @@ export default function EventTable({ events, onSelect, selectedId }) {
     )}
   </tbody>
 </table>
-
+</div>
   );
 }

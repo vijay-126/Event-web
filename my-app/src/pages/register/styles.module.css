@@ -8,6 +8,7 @@
 
 .form {
   width: 100%;
+  margin: 0 16px; 
   max-width: 420px;
   background: white;
   padding: 32px;
@@ -52,7 +53,9 @@
 
 .registerBtn:hover {
   background: #15803d;
+  transform: translateY(-1px);
 }
+
 
 .footerText {
   margin-top: 16px;
@@ -69,4 +72,51 @@
 
 .footerText a:hover {
   text-decoration: underline;
+}
+
+/* 📱 Tablets */
+@media (max-width: 768px) {
+  .form {
+    padding: 24px;
+    max-width: 90%;
+  }
+
+  .form h2 {
+    font-size: 22px;
+  }
+
+  .form input {
+    font-size: 14px;
+    padding: 11px 12px;
+  }
+
+  .registerBtn {
+    font-size: 14px;
+    padding: 11px;
+  }
+}
+
+/* 📱 Mobile */
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+  }
+
+  .form {
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .form h2 {
+    font-size: 20px;
+    margin-bottom: 18px;
+  }
+
+  .form input {
+    margin-bottom: 12px;
+  }
+
+  .footerText {
+    font-size: 13px;
+  }
 }

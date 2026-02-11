@@ -10,7 +10,12 @@ export default function EventPreview({ event }) {
       <p><strong>Venue:</strong> {event.venueAddress}</p>
       <p><strong>City:</strong> {event.city}</p>
       <p><strong>Date:</strong> {new Date(event.dateTime).toLocaleDateString()}</p>
-      <img src={event.imageUrl}alt={event.title} style={{width:"20rem"}} />
+      <img
+  src={event.imageUrl}
+  alt={event.title}
+  className={styles.previewImage}
+/>
+
       <p>{event.description}</p>
     </div>
   );
